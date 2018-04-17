@@ -1,0 +1,22 @@
+<h1> Welcome To Cool Movies </h1>
+<div class="container">
+	{{#if warning}}
+		<div class="alert alert-danger" role="alert">{{warning}}</div>
+	{{/if}}
+	<form method='POST' action='/login'>
+		<div class="login_container">
+			<h2>Log in to your account</h2>
+			<div class="form-group">
+				<label for="user" >User</label>
+				<input id="user" class="form-control" name="user" placeholder="username">
+			</div>
+			<div class="form-group">		
+				<label for="password">Password</label>
+				<input id="password" class="form-control" name="password" placeholder="password" type="password">
+			</div>
+				<input type="submit"  class="btn btn-primary" value="Log in">
+			</div>
+		</div>
+	</form>
+</div>
+

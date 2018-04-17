@@ -1,0 +1,32 @@
+<h2> {{movie.name}} </h2>
+<div id="video-container">
+<video width="640" height="320" controls autoplay>
+  <source src="/videos/{{movie.video}}" type="video/mp4">
+</video>
+</div>
+
+<div id="details-container">
+	<h4>Details form {{movie.name}}</h4>
+	<table>
+		<tr>
+			<td><b>Description: </b></td>
+			<td><p>{{movie.description}}</p></td>
+		</tr>
+		<tr>
+			<td><b>Genre: </b></td>
+			<td><p>{{movie.genre}}</p></td>
+		</tr>
+		<tr>
+			<td><b>Rating: </b></td>
+			<td><p>{{movie.stars_review}} of 5</p></td>
+		</tr>
+		<tr>
+			<td><b>Social Media: </b></td>
+			<td>
+				<a href="http://www.facebook.com/"><img src="/images/facebook.svg"></a>
+				<a href="http://www.twitter.com/"><img src="/images/twitter.svg"></a>
+				<a href="http://www.instagram.com/"><img src="/images/instagram.svg"></a>
+			</td>
+		</tr>
+	</table>
+</div>

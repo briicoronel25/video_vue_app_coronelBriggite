@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color:#c2c3c5;
+}
+
+h1,h2{
+	font-family: 'PT_Sans-Web-Regular';
+}
+
+a {
+  color: #00B7FF;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}

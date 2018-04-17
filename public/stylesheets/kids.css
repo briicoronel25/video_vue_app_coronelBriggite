@@ -1,0 +1,44 @@
+body{
+	background-image: url("../images/kids_bg.jpg");
+}
+
+
+h1,h2,h3,h4,h5,p{
+	font-family: 'ButterflyKids-Regular';
+}
+
+h1{
+	margin: 5% auto;
+	text-align:center;
+}
+
+.navbar{
+	background-color:#77e6ff !important;
+}
+
+.form-group{
+	width:50%;
+	margin-left: 20%;
+	margin-right: 3%;
+}
+
+select.form-control{
+	width: 50% !important ;
+	margin: 0% 5%;
+}
+
+.thumbnail{
+	width:25%;
+	display:inline-block;
+	margin: 2%;
+}
+
+.thumbnail img{
+	width:100%;
+	display:inline-block;
+}
+
+.thumbnail h5{
+	text-align:center;
+	margin-top:2%;
+}

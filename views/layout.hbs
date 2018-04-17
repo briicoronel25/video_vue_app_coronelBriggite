@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+	<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+	<link rel='stylesheet' href='/stylesheets/bootstrap-grid.min.css' />
+	<link rel='stylesheet' href='/stylesheets/bootstrap-reboot.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+	
+	{{#if login}}
+		<link rel='stylesheet' href='/stylesheets/login.css' />
+	{{/if}}
+	
+	{{#if kids}}
+		<link rel='stylesheet' href='/stylesheets/kids.css' />
+	{{/if}}
+	
+	{{#if general}}
+		<link rel='stylesheet' href='/stylesheets/general.css' />
+	{{/if}}
+	
+	{{#if details}}
+		<link rel='stylesheet' href='/stylesheets/details.css' />
+	{{/if}}
+	
+  </head>
+  <body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		  <div class="container">
+			<a class="navbar-brand" href="#">
+			  <img src="/images/logo.png" width="150" height="30" alt="">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+			  <ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+				  {{#if kids}}
+				  <a class="nav-link" href="../login">Logout
+					<span class="sr-only">(current)</span>
+				  </a>
+				  {{else}}
+					{{#if general}}
+						<a class="nav-link" href="../login">Logout
+							<span class="sr-only">(current)</span>
+						</a>
+				    {{else}}
+						<a class="nav-link" href="#">Home
+							<span class="sr-only">(current)</span>
+						</a>
+				    {{/if}}
+				  {{/if}}
+				 
+				</li>
+			  </ul>
+			</div>
+		  </div>
+		</nav>
+	</header>
+	
+    {{{body}}}
+	
+	<footer>
+		<div>
+			<p>All Rights Reserved</p>
+		</div>
+	</footer>
+  </body>
+</html>

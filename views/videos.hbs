@@ -1,0 +1,44 @@
+{{#if kids}}
+	<h1> HEY KID, ARE YOU READY FOR SOME FUN??</h1>
+{{else}}
+	<h1> HELLO BUDDY, NICE TO SEE YOU!</h1>
+{{/if}}
+
+<div class="container">
+	<div id="filter-div" class="row">
+		<div class="col-6">
+			<h5>Filtering Content by: {{category}}</h5>
+		</div>
+		<div class="col-6">
+		{{#if kids}}
+		<form class="form-inline" method="GET" action="/videos/kids/filter">
+		{{else}}
+		<form class="form-inline" method="GET" action="/videos/general/filter">
+		{{/if}}
+			<div class="form-group">
+				<label for="category">Select category: </label> 
+				<select name="category" class="form-control">
+					<option selected>all</option>
+					{{#each result_category}}
+						<option>{{genre}}</option>
+					{{/each}}
+				</select>
+			</div>
+			<input type="submit" value="filter" class="btn btn-primary">
+		</form>
+		</div>
+	</div>
+	
+	<div id="content-div" class="container">
+			{{#each result_content}}
+				<div class="thumbnail">
+					{{#if ../kids}}
+					<a href="{{../hostname}}/videos/kids/{{id}}"><img src="/images/kids/{{thumbnail}}"> </a>
+					{{else}}
+					<a href="{{../hostname}}/videos/general/{{id}}"><img src="/images/{{thumbnail}}"></a>
+					{{/if}}
+					<h5>{{name}}</h5>
+				</div>
+			{{/each}}
+	</div>
+</div>
