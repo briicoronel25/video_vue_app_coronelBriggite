@@ -1,6 +1,6 @@
 <h2> {{movie.name}} </h2>
 <div id="video-container">
-<video width="640" height="320" controls autoplay>
+<video width="640" height="320" controls>
   <source src="/videos/{{movie.video}}" type="video/mp4">
 </video>
 </div>
@@ -29,4 +29,64 @@
 			</td>
 		</tr>
 	</table>
+</div>
+
+<div id="details-reviews">
+	<h4>Reviews from {{movie.name}}</h4>
+	<div class="divider"></div>
+	<div class="section">
+		<div class="section-name">
+			<span><h5>Jhon Doe</h5></span>
+			<span><label>★★★★★</label></span>
+		</div>
+		<div class="section-comment">
+			<p>I think this movie sucks in all posible ways....but i love it!!</p>
+		</div>
+		<div class="section-date">
+			<i>Published on 2018-04-19 10:00:00</i>
+		</div>
+	</div>
+	<div class="divider"></div>
+	<div class="section">
+		<div class="section-name">
+			<span><h5>Ralph Lauren</h5></span>
+			<span><label>★★★</label></span>
+		</div>
+		<div class="section-comment">
+			<p>I think they would invest more in effects and sound, because it seems like it has been created by an indie director</p>
+		</div>
+		<div class="section-date">
+			<i>Published on 2018-04-19 10:00:00</i>
+		</div>
+	</div>
+	<div class="divider"></div>
+</div>
+
+<a href="#" data-target="slide-out" class="sidenav-trigger btn">Make a Review</a>
+
+<!--aside-->
+<ul id="slide-out" class="sidenav">
+	<li>
+		<h4>Make a Review!</h4>
+	</li>
+	<li>
+		<div class="review-rating">
+			<h4>Rate this movie</h4>
+			<label>★★★</label>
+		</div>
+	</li>
+	<li>
+		<div class="review-form">
+			<form>
+				<label for="name">What's your name?</label>
+				<input type="text" name="name" id="name" placeholder="Write your name here" required>
+				<label for="commment">Write here your comment</label>
+				<textarea  class="materialize-textarea" name="comment" id="comment" cols="30" rows="30" placeholder="What's your opinion?"></textarea>
+				<input class="btn submit-review" type="submit" value="Send my review">
+			</form>
+		</div>
+	</li>
+</ul>
+<div class="fixed-action-btn">
+	<a class="btn-floating btn-large green"><i class="large material-icons">arrow_back</i></a>
 </div>

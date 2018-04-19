@@ -98,3 +98,79 @@ select.form-control {
     width: 12%;
     margin: 0% 3%;
 }
+
+
+/**MOVIE DETAILS SECTION**/
+
+#details-reviews {
+    margin: 4% 0% 3% 0%;
+}
+
+#details-reviews h4 {
+    margin: 4% 0% 4% 0%;
+}
+
+#details-reviews div.divider {
+    margin: 0% 0% 2% 0%;
+}
+
+.section {
+    padding-top: 1%;
+}
+
+.section-name span {
+    display: inline-block;
+    margin-right: 3%;
+}
+
+.section-name label {
+    font-size: 1.5em;
+    color: yellow;
+}
+
+.section-comment {
+    margin: 1% 0%;
+}
+
+.section-comment p {
+    margin: 0%;
+    color: white;
+}
+
+.section-date {
+    margin: 3% 0% 0% 0%;
+}
+
+.section-date i {
+    color: #76ff03;
+}
+
+
+/**DETAILS COMMENT SECTION**/
+
+.review-form {
+    padding: 0% 3%;
+}
+
+.review-form label {
+    margin: 8% 0% 3% 0%;
+    font-size: 1.5em;
+    display: block;
+    text-align: center;
+}
+
+.review-form input#name {
+    color: white;
+    text-align: center;
+}
+
+.review-form textarea {
+    text-align: justify;
+    color: white;
+}
+
+.submit-review {
+    display: block;
+    text-align: center;
+    margin: 3% auto;
+}
