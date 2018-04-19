@@ -33,12 +33,44 @@
 			{{#each result_content}}
 				<div class="thumbnail">
 					{{#if ../kids}}
-					<a href="{{../hostname}}/videos/kids/{{id}}"><img src="/images/kids/{{thumbnail}}"> </a>
+					<a href="#" data-target="slide-out" class="sidenav-trigger"><img src="/images/kids/{{thumbnail}}"></a>
+					<!--a href="{{../hostname}}/videos/kids/{{id}}"><img src="/images/kids/{{thumbnail}}"> </a>-->
 					{{else}}
-					<a href="{{../hostname}}/videos/general/{{id}}"><img src="/images/{{thumbnail}}"></a>
+					<a href="#" data-target="slide-out" class="sidenav-trigger"><img src="/images/{{thumbnail}}"></a>
+					<!--a href="{{../hostname}}/videos/general/{{id}}"><img src="/images/{{thumbnail}}"></a>-->
 					{{/if}}
 					<h5>{{name}}</h5>
 				</div>
 			{{/each}}
 	</div>
+
+	<!--aside-->
+	<ul id="slide-out" class="sidenav">
+    <li>
+		<div id="side_title">
+			<h4>Title</h4>
+			<video src="/videos/default.mp4" controls width="320" height="240">
+			</video>
+		</div>
+	</li>
+	<li>
+		<div id="side_rating">
+			<h4>Rating</h4>
+			<label>★★★★★</label>
+		</div>
+		<div id="side_social">
+			<h4>Share</h4>
+			<div class="container">
+				<a href="http://www.facebook.com/"><img class="z-depth-2 tooltipped" data-position="top" data-tooltip="Share on Facebook!" src="/images/facebook.svg"></a>
+				<a href="http://www.twitter.com/"><img class="z-depth-2 tooltipped" data-position="top" data-tooltip="Share on Twitter!" src="/images/twitter.svg"></a>
+				<a href="http://www.instagram.com/"><img class="z-depth-2 tooltipped" data-position="top" data-tooltip="Share on Instagram!" src="/images/instagram.svg"></a>
+			</div>
+		</div>
+	</li>
+	<li>
+		<a class="waves-effect waves-light btn"><i class="material-icons right">arrow_forward</i>Go to details</a>
+	</li>
+  	</ul>
+  	<!--a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
+      
 </div>

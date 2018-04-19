@@ -2,10 +2,12 @@
 <html>
   <head>
     <title>{{title}}</title>
+	<link rel="stylesheet" href="/stylesheets/materialize.min.css">
 	<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
 	<link rel='stylesheet' href='/stylesheets/bootstrap-grid.min.css' />
 	<link rel='stylesheet' href='/stylesheets/bootstrap-reboot.min.css' />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
 	{{#if login}}
 		<link rel='stylesheet' href='/stylesheets/login.css' />
@@ -38,16 +40,16 @@
 			  <ul class="navbar-nav ml-auto">
 				<li class="nav-item active">
 				  {{#if kids}}
-				  <a class="nav-link" href="../login">Logout
+				  <a class="btn-flat" href="../login">Logout
 					<span class="sr-only">(current)</span>
 				  </a>
 				  {{else}}
 					{{#if general}}
-						<a class="nav-link" href="../login">Logout
+						<a class="btn-flat" href="../login">Logout
 							<span class="sr-only">(current)</span>
 						</a>
 				    {{else}}
-						<a class="nav-link" href="#">Home
+						<a class="btn-flat" href="#">Home
 							<span class="sr-only">(current)</span>
 						</a>
 				    {{/if}}
@@ -67,5 +69,8 @@
 			<p>All Rights Reserved</p>
 		</div>
 	</footer>
+
+	<script src="/javascripts/materialize.min.js"></script>
+	<script src="/javascripts/videos_functions.js"></script>
   </body>
 </html>
