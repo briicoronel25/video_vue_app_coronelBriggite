@@ -1,5 +1,7 @@
 body {
     background-image: url("../images/kids_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1,
@@ -97,4 +99,104 @@ select.form-control {
 #side_social img {
     width: 12%;
     margin: 0% 3%;
+}
+
+
+/**MOVIE DETAILS SECTION**/
+
+#details-reviews {
+    margin: 4% 0% 3% 0%;
+}
+
+#details-reviews h4 {
+    margin: 4% 0% 4% 0%;
+}
+
+#details-reviews div.divider {
+    margin: 0% 0% 2% 0%;
+}
+
+.section {
+    padding-top: 1%;
+}
+
+.section-name span {
+    display: inline-block;
+    margin-right: 3%;
+}
+
+.section-name label {
+    font-size: 1.5em;
+    color: yellow;
+}
+
+.section-comment {
+    margin: 1% 0%;
+}
+
+.section-comment p {
+    margin: 0%;
+    font-size: 1.2em;
+    color: #1b5e20;
+}
+
+.section-date {
+    margin: 3% 0% 0% 0%;
+}
+
+.divider {
+    background-color: #bf360c;
+}
+
+.section-date i {
+    color: #bf360c;
+}
+
+
+/**DETAILS COMMENT SECTION**/
+
+.review-form {
+    padding: 0% 3%;
+}
+
+.review-rating h4 {
+    color: white;
+}
+
+.review-form label {
+    color: white;
+    margin: 8% 0% 3% 0%;
+    font-size: 1.5em;
+    display: block;
+    text-align: center;
+}
+
+.review-form input#name {
+    color: black;
+    text-align: center;
+}
+
+.review-form input#name::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(137, 141, 122);
+    opacity: 1;
+    /* Firefox */
+}
+
+.review-form textarea {
+    text-align: justify;
+    color: black;
+}
+
+.review-form textarea::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(137, 141, 122);
+    opacity: 1;
+    /* Firefox */
+}
+
+.submit-review {
+    display: block;
+    text-align: center;
+    margin: 3% auto;
 }
