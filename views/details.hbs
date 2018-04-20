@@ -1,3 +1,5 @@
+<section id="reviews">
+<span id="id_hidden">{{movie.id}}</span>
 <h2> {{movie.name}} </h2>
 <div id="video-container">
 <video width="640" height="320" controls>
@@ -33,6 +35,7 @@
 
 <div id="details-reviews">
 	<h4>Reviews from {{movie.name}}</h4>
+	<div class="review-container">
 	<div class="divider"></div>
 	<div class="section">
 		<div class="section-name">
@@ -46,6 +49,8 @@
 			<i>Published on 2018-04-19 10:00:00</i>
 		</div>
 	</div>
+	</div>
+	<div class="review-container">
 	<div class="divider"></div>
 	<div class="section">
 		<div class="section-name">
@@ -58,6 +63,22 @@
 		<div class="section-date">
 			<i>Published on 2018-04-19 10:00:00</i>
 		</div>
+	</div>
+	</div>
+	<div class="review-container" v-for="review in reviews">
+	<div class="divider"></div>
+	<div class="section">
+		<div class="section-name">
+			<span><h5>${review.username}</h5></span>
+			<span><label v-for="n in review.review">★</label></span>
+		</div>
+		<div class="section-comment">
+			<p v-text="review.comment"></p>
+		</div>
+		<div class="section-date">
+			<i>Published on ${review.date}</i>
+		</div>
+	</div>
 	</div>
 	<div class="divider"></div>
 </div>
@@ -72,21 +93,22 @@
 	<li>
 		<div class="review-rating">
 			<h4>Rate this movie</h4>
-			<label>★★★</label>
+			<review-stars v-model="numStars" :disabled="false"></review-stars>
 		</div>
 	</li>
 	<li>
 		<div class="review-form">
 			<form>
 				<label for="name">What's your name?</label>
-				<input type="text" name="name" id="name" placeholder="Write your name here" required>
+				<input type="text" name="name" id="name" v-model="username" placeholder="Write your name here" required>
 				<label for="commment">Write here your comment</label>
-				<textarea  class="materialize-textarea" name="comment" id="comment" cols="30" rows="30" placeholder="What's your opinion?"></textarea>
-				<input class="btn submit-review" type="submit" value="Send my review">
+				<textarea  class="materialize-textarea" v-model="review" name="comment" id="comment" cols="30" rows="30" placeholder="What's your opinion?"></textarea>
+				<input class="btn submit-review" type="submit" value="Send my review" @click="addReview">
 			</form>
 		</div>
 	</li>
 </ul>
 <div class="fixed-action-btn">
-	<a class="btn-floating btn-large green"><i class="large material-icons">arrow_back</i></a>
+	<a :href="{{../hostname}}/videos/ + dir" class="btn-floating btn-large green"><i class="large material-icons">arrow_back</i></a>
 </div>
+</section>
