@@ -1,3 +1,4 @@
+<section id="videos">
 {{#if kids}}
 	<h1> HEY KID, ARE YOU READY FOR SOME FUN??</h1>
 {{else}}
@@ -7,9 +8,10 @@
 <div class="container">
 	<div id="filter-div" class="row">
 		<div class="col-6">
-			<h5>Filtering Content by: {{category}}</h5>
+			<h5>Filtering Content by: ${actual_genre}</h5>
 		</div>
-		<div class="col-6">
+		<genre-select :genres='genres' @filter='reloadMovies'></genre-select>
+		<!--div class="col-6">
 		{{#if kids}}
 		<form class="form-inline" method="GET" action="/videos/kids/filter">
 		{{else}}
@@ -26,23 +28,18 @@
 			</div>
 			<input type="submit" value="filter" class="btn btn-primary">
 		</form>
-		</div>
+		</div-->
 	</div>
 	
 	<div id="content-div" class="container">
-			{{#each result_content}}
-				<div class="thumbnail">
-					{{#if ../kids}}
-					<a href="#" data-target="slide-out" class="sidenav-trigger"><img src="/images/kids/{{thumbnail}}"></a>
-					<!--a href="{{../hostname}}/videos/kids/{{id}}"><img src="/images/kids/{{thumbnail}}"> </a>-->
-					{{else}}
-					<a href="#" data-target="slide-out" class="sidenav-trigger"><img src="/images/{{thumbnail}}"></a>
-					<!--a href="{{../hostname}}/videos/general/{{id}}"><img src="/images/{{thumbnail}}"></a>-->
-					{{/if}}
-					<h5>{{name}}</h5>
-				</div>
-			{{/each}}
+		<div class="thumbnail" v-for="movie in movies">
+			<a href="#" data-target="slide-out" class="sidenav-trigger"><img :src="/images/ + movie.thumbnail"></a>
+			<h5>${movie.name}</h5> 
+		</div>
 	</div>
+
+	<!--a href="{{../hostname}}/videos/kids/{{id}}"><img src="/images/kids/{{thumbnail}}"> </a>-->
+	<!--a href="{{../hostname}}/videos/general/{{id}}"><img src="/images/{{thumbnail}}"></a>-->
 
 	<!--aside-->
 	<ul id="slide-out" class="sidenav">
@@ -74,3 +71,4 @@
   	<!--a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
       
 </div>
+</section>

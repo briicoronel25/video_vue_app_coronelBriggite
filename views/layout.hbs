@@ -8,6 +8,8 @@
 	<link rel='stylesheet' href='/stylesheets/bootstrap-reboot.min.css' />
   <link rel='stylesheet' href='/stylesheets/style.css' />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 	
 	{{#if login}}
 		<link rel='stylesheet' href='/stylesheets/login.css' />
@@ -70,7 +72,14 @@
 		</div>
 	</footer>
 
+	{{#if general}}>
+		<script>
+			var user_type="adult";
+		</script>
+		<script src="/javascripts/genre_select_component.js"></script>
+	{{/if}}
+
 	<script src="/javascripts/materialize.min.js"></script>
-	<script src="/javascripts/videos_functions.js"></script>
+	<script src="/javascripts/videos_functions.js"></script
   </body>
 </html>
