@@ -11,29 +11,11 @@
 			<h5>Filtering Content by: ${actual_genre}</h5>
 		</div>
 		<genre-select :genres='genres' @filter='reloadMovies'></genre-select>
-		<!--div class="col-6">
-		{{#if kids}}
-		<form class="form-inline" method="GET" action="/videos/kids/filter">
-		{{else}}
-		<form class="form-inline" method="GET" action="/videos/general/filter">
-		{{/if}}
-			<div class="form-group">
-				<label for="category">Select category: </label> 
-				<select name="category" class="form-control">
-					<option selected>all</option>
-					{{#each result_category}}
-						<option>{{genre}}</option>
-					{{/each}}
-				</select>
-			</div>
-			<input type="submit" value="filter" class="btn btn-primary">
-		</form>
-		</div-->
 	</div>
 	
 	<div id="content-div" class="container">
 		<div class="thumbnail" v-for="movie in movies">
-			<a href="#" data-target="slide-out" class="sidenav-trigger"><img :src="/images/ + movie.thumbnail"></a>
+			<a @click="setMovie" :href="movie.id" data-target="slide-out" class="sidenav-trigger"><img :src="/images/ + movie.thumbnail"></a>
 			<h5>${movie.name}</h5> 
 		</div>
 	</div>
@@ -45,15 +27,17 @@
 	<ul id="slide-out" class="sidenav">
     <li>
 		<div id="side_title">
-			<h4>Title</h4>
-			<video src="/videos/default.mp4" controls width="320" height="240">
+			<h4>${actual_movie.name}</h4>
+			<video :src="/videos/ + actual_movie.video" controls width="320" height="240">
 			</video>
 		</div>
 	</li>
 	<li>
 		<div id="side_rating">
 			<h4>Rating</h4>
-			<label>★★★★★</label>
+			<div class="stars_container">
+			<label v-for="n in actual_movie.stars_review">★</label>
+			</div>
 		</div>
 		<div id="side_social">
 			<h4>Share</h4>
@@ -65,7 +49,7 @@
 		</div>
 	</li>
 	<li>
-		<a class="waves-effect waves-light btn"><i class="material-icons right">arrow_forward</i>Go to details</a>
+		<a class="waves-effect waves-light btn" :href="/videos/ + dir + '/' + actual_movie.id"><i class="material-icons right">arrow_forward</i>Go to details</a>
 	</li>
   	</ul>
   	<!--a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->

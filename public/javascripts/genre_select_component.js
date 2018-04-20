@@ -52,8 +52,14 @@ const videosApp = {
             genres: ["all"],
             movies: [],
             actual_genre: "all",
+            actual_movie: '',
+            dir: '',
         },
         mounted() {
+            if (user_type == "adult")
+                this.dir = "general";
+            else
+                this.dir = "kids";
             console.log("USSER TYPE =>", user_type);
             axios.get('/api/genres/' + user_type)
                 .then(response => {
@@ -84,6 +90,13 @@ const videosApp = {
                 this.movies = movies;
                 this.actual_genre = genre;
                 console.log("MOVIES FROM INSTANCE:" + movies);
+            },
+            setMovie: function(e, target) {
+                console.log("a whas clicked");
+                var id = e.target.parentNode.getAttribute('href');
+                this.actual_movie = this.movies.filter(mov => mov.id == id);
+                this.actual_movie = this.actual_movie[0];
+                console.log("actual movie: " + JSON.stringify(this.actual_movie));
             }
         },
     })
