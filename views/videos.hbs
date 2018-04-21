@@ -1,76 +1,84 @@
+<section id="videos">
 {{#if kids}}
 	<h1> HEY KID, ARE YOU READY FOR SOME FUN??</h1>
 {{else}}
 	<h1> HELLO BUDDY, NICE TO SEE YOU!</h1>
 {{/if}}
 
+<div v-if="default_video" id="video-default-container">
+<video width="420" height="300" controls>
+  <source v-if="default_video" :src="/videos/ + default_video" type="video/mp4">
+</video>
+</div>
+
+
 <div class="container">
 	<div id="filter-div" class="row">
 		<div class="col-6">
-			<h5>Filtering Content by: {{category}}</h5>
+			<h5>Filtering Content by: ${actual_genre}</h5>
 		</div>
-		<div class="col-6">
-		{{#if kids}}
-		<form class="form-inline" method="GET" action="/videos/kids/filter">
-		{{else}}
-		<form class="form-inline" method="GET" action="/videos/general/filter">
-		{{/if}}
-			<div class="form-group">
-				<label for="category">Select category: </label> 
-				<select name="category" class="form-control">
-					<option selected>all</option>
-					{{#each result_category}}
-						<option>{{genre}}</option>
-					{{/each}}
-				</select>
-			</div>
-			<input type="submit" value="filter" class="btn btn-primary">
-		</form>
-		</div>
+		<genre-select :genres='genres' @filter='reloadMovies'></genre-select>
 	</div>
 	
 	<div id="content-div" class="container">
-			{{#each result_content}}
-				<div class="thumbnail">
-					{{#if ../kids}}
-					<a href="#" data-target="slide-out" class="sidenav-trigger"><img src="/images/kids/{{thumbnail}}"></a>
-					<!--a href="{{../hostname}}/videos/kids/{{id}}"><img src="/images/kids/{{thumbnail}}"> </a>-->
-					{{else}}
-					<a href="#" data-target="slide-out" class="sidenav-trigger"><img src="/images/{{thumbnail}}"></a>
-					<!--a href="{{../hostname}}/videos/general/{{id}}"><img src="/images/{{thumbnail}}"></a>-->
-					{{/if}}
-					<h5>{{name}}</h5>
-				</div>
-			{{/each}}
+		<div class="thumbnail" v-for="movie in movies">
+			<a @click="setMovie" :href="movie.id" data-target="slide-out" class="sidenav-trigger"><img :src="/images/ + movie.thumbnail"></a>
+			<h5>${movie.name}</h5> 
+		</div>
 	</div>
+
 
 	<!--aside-->
 	<ul id="slide-out" class="sidenav">
     <li>
 		<div id="side_title">
-			<h4>Title</h4>
-			<video src="/videos/default.mp4" controls width="320" height="240">
+			<h5>${actual_movie.name}</h5>
+			<video :src="/videos/ + actual_movie.video" controls width="300" height="200">
 			</video>
 		</div>
 	</li>
 	<li>
-		<div id="side_rating">
-			<h4>Rating</h4>
-			<label>★★★★★</label>
+		<div v-if='mean_rate' id="side_rating">
+			<h5>Rating</h5>
+			<div class="stars_container">
+			<label v-for="n in mean_rate">★</label>
+			</div>
 		</div>
 		<div id="side_social">
-			<h4>Share</h4>
+			<h5>Share</h5>
 			<div class="container">
-				<a href="http://www.facebook.com/"><img class="z-depth-2 tooltipped" data-position="top" data-tooltip="Share on Facebook!" src="/images/facebook.svg"></a>
-				<a href="http://www.twitter.com/"><img class="z-depth-2 tooltipped" data-position="top" data-tooltip="Share on Twitter!" src="/images/twitter.svg"></a>
-				<a href="http://www.instagram.com/"><img class="z-depth-2 tooltipped" data-position="top" data-tooltip="Share on Instagram!" src="/images/instagram.svg"></a>
+				<social-sharing 
+					  :url="actual_movie.facebook"
+                      :title="actual_movie.name"
+                      :description="actual_movie.description"
+                      :quote="actual_movie.description"
+                      :hashtags="actual_movie.name"
+					  :twitter-user="actual_movie.twitter"
+                      inline-template>
+					<div>
+						<network network="facebook">
+							<img class="z-depth-2 tooltipped" data-position="top" data-tooltip="Share on Facebook!" src="/images/facebook.svg">
+						</network>
+						<network network="twitter">
+							<img class="z-depth-2 tooltipped" data-position="top" data-tooltip="Share on Twitter!" src="/images/twitter.svg">
+						</network>
+					</div>
+				</social-sharing>
+				<div 
+					class="fb-like" 
+					:data-href="actual_movie.website" 
+					data-layout="button" 
+					data-action="like" 
+					data-size="small" 
+					data-show-faces="true" 
+					data-share="false">
+				</div>
 			</div>
 		</div>
 	</li>
 	<li>
-		<a class="waves-effect waves-light btn"><i class="material-icons right">arrow_forward</i>Go to details</a>
+		<a class="waves-effect waves-light btn" :href="/videos/ + dir + '/' + actual_movie.id"><i class="material-icons right">arrow_forward</i>Go to details</a>
 	</li>
   	</ul>
-  	<!--a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
-      
 </div>
+</section>
