@@ -5,6 +5,13 @@
 	<h1> HELLO BUDDY, NICE TO SEE YOU!</h1>
 {{/if}}
 
+<div v-if="default_video" id="video-default-container">
+<video width="420" height="300" controls>
+  <source v-if="default_video" :src="/videos/ + default_video" type="video/mp4">
+</video>
+</div>
+
+
 <div class="container">
 	<div id="filter-div" class="row">
 		<div class="col-6">
@@ -31,10 +38,10 @@
 		</div>
 	</li>
 	<li>
-		<div id="side_rating">
+		<div v-if='mean_rate' id="side_rating">
 			<h5>Rating</h5>
 			<div class="stars_container">
-			<label v-for="n in actual_movie.stars_review">★</label>
+			<label v-for="n in mean_rate">★</label>
 			</div>
 		</div>
 		<div id="side_social">

@@ -15,6 +15,8 @@ router.get('/movies/:type', function(req, res, next) {
     });
 });
 
+
+
 router.get('/genres/:type', function(req, res, next) {
     type = req.params.type;
     console.log("I AM ON GENRES REQUEST!->" + type);

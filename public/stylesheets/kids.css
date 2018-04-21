@@ -16,10 +16,16 @@ p {
 h1 {
     margin: 5% auto;
     text-align: center;
+    margin-bottom: 1%;
 }
 
 .navbar {
     background-color: #77e6ff !important;
+}
+
+#video-default-container {
+    margin-bottom: 5%;
+    text-align: center;
 }
 
 .form-group {

@@ -55,6 +55,8 @@ const videosApp = {
             actual_genre: "all",
             actual_movie: '',
             dir: '',
+            default_video: '',
+            mean_rate: '',
         },
         mounted() {
             if (user_type == "adult")
@@ -79,6 +81,8 @@ const videosApp = {
                 res => {
                     movs = res.data;
                     this.movies = movs;
+                    var index = Math.floor(Math.random() * (this.movies.length - 1));
+                    this.default_video = this.movies[index].video;
                 }
             ).catch(function(error) {
                 console.log(error);
@@ -87,9 +91,13 @@ const videosApp = {
 
         methods: {
             reloadMovies: function(movies, genre) {
+                this.default_video = '';
                 console.log("EVENT RESULT:" + movies + genre);
                 this.movies = movies;
                 this.actual_genre = genre;
+                var index = Math.floor(Math.random() * (this.movies.length - 1));
+                //this.default_video = this.movies[index].video;
+                setTimeout(this.randomMovie, 500);
                 console.log("MOVIES FROM INSTANCE:" + movies);
             },
             setMovie: function(e, target) {
@@ -98,6 +106,27 @@ const videosApp = {
                 this.actual_movie = this.movies.filter(mov => mov.id == id);
                 this.actual_movie = this.actual_movie[0];
                 console.log("actual movie: " + JSON.stringify(this.actual_movie));
+
+                axios.get("/api/reviews/" + this.actual_movie.id).then(
+                    res => {
+                        var revs = res.data;
+                        var mean = 0;
+                        console.log("this data" + JSON.stringify(revs));
+                        var rev;
+                        var i;
+                        for (i = 0; i < revs.length; i++) {
+                            rev = revs[i];
+                            console.log("this rev=" + rev);
+                            mean += rev.review;
+                        }
+                        mean = mean / revs.length;
+                        this.mean_rate = Math.ceil(mean);
+                        this.mean_rate = this.mean_rate ? this.mean_rate : 0;
+                        console.log(this.mean_rate);
+                    }
+                ).catch(function(error) {
+                    console.log(error);
+                });
 
                 (function(d, s, id) {
                     var js, fjs = d.getElementsByTagName(s)[0];
@@ -108,6 +137,10 @@ const videosApp = {
                     fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));
 
+            },
+            randomMovie: function() {
+                var index = Math.floor(Math.random() * (this.movies.length - 1));
+                this.default_video = this.movies[index].video;
             }
         },
     })
