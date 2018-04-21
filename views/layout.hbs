@@ -7,9 +7,11 @@
 	<link rel='stylesheet' href='/stylesheets/bootstrap-grid.min.css' />
 	<link rel='stylesheet' href='/stylesheets/bootstrap-reboot.min.css' />
   <link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.15/dist/vue.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+	<script src="/javascripts/vue-social-sharing.min.js"></script>
 	
 	{{#if login}}
 		<link rel='stylesheet' href='/stylesheets/login.css' />
@@ -29,6 +31,7 @@
 	
   </head>
   <body>
+	<div id="fb-root"></div>	
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		  <div class="container">
@@ -91,8 +94,7 @@
 	{{#if details}}
 		<script src="/javascripts/reviews_component.js"></script>
 	{{/if}}
-
 	<script src="/javascripts/materialize.min.js"></script>
-	<script src="/javascripts/videos_functions.js"></script
+	<script src="/javascripts/videos_functions.js"></script>
   </body>
 </html>

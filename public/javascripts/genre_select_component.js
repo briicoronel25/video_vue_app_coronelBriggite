@@ -47,6 +47,7 @@ const videosApp = {
         el: "#videos",
         components: {
             'genre-select': genreSelect,
+            'social-sharing': SocialSharing,
         },
         data: {
             genres: ["all"],
@@ -97,6 +98,16 @@ const videosApp = {
                 this.actual_movie = this.movies.filter(mov => mov.id == id);
                 this.actual_movie = this.actual_movie[0];
                 console.log("actual movie: " + JSON.stringify(this.actual_movie));
+
+                (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+
             }
         },
     })

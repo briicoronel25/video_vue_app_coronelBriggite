@@ -4,11 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var Vue = require('vue');
 var index = require('./routes/login');
 var users = require('./routes/users');
 var videos = require('./routes/videos');
 var api = require('./routes/api');
+var SocialSharing = require('vue-social-sharing');
 
 var app = express();
 
@@ -23,7 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+Vue.use(SocialSharing);
 app.use('/login', index);
 app.use('/users', users);
 app.use('/videos', videos);

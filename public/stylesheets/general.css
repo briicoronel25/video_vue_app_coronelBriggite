@@ -107,7 +107,7 @@ select.form-control {
 
 #side_social div {
     height: 50;
-    margin: 3% 0%;
+    margin: 0%;
 }
 
 #side_social a {
@@ -117,6 +117,10 @@ select.form-control {
 #side_social img {
     width: 12%;
     margin: 0% 3%;
+}
+
+ul.sidenav a.btn {
+    margin: 6% 15%;
 }
 
 
